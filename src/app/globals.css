@@ -1,6 +1,29 @@
 @import "tailwindcss";
 
-/* GymM - Fitness Studio Color Palette */
+/* Tailwind v4 Theme Configuration */
+@theme {
+  /* Background Colors */
+  --color-background: #0A0A0A;
+  --color-background-secondary: #111111;
+  --color-background-tertiary: #1A1A1A;
+  --color-background-card: #151515;
+
+  /* Accent Colors */
+  --color-accent-primary: #FF3D00;
+  --color-accent-secondary: #00FF88;
+  --color-accent-hover: #FF5722;
+
+  /* Text Colors */
+  --color-foreground: #FFFFFF;
+  --color-foreground-muted: #A0A0A0;
+  --color-foreground-dim: #666666;
+
+  /* Border Colors */
+  --color-border: #2A2A2A;
+  --color-border-hover: #3A3A3A;
+}
+
+/* GymM - Fitness Studio Color Palette (CSS Variables for inline styles) */
 :root {
   /* Background Colors */
   --background: #0A0A0A;
@@ -36,6 +59,8 @@
 html {
   scroll-behavior: smooth;
   font-size: 16px;
+  width: 100%;
+  height: 100%;
 }
 
 body {
@@ -46,6 +71,10 @@ body {
   overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  min-height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
 }
 
 /* Custom Scrollbar */
@@ -178,6 +207,7 @@ body {
 /* Section Styles */
 .section {
   padding: 80px 0;
+  width: 100%;
 }
 
 @media (min-width: 768px) {
@@ -291,4 +321,14 @@ body {
   height: 100%;
   background: linear-gradient(to bottom, rgba(0,0,0,0.7), rgba(0,0,0,0.5), rgba(10,10,10,1));
   z-index: 1;
+}
+
+/* Scrollbar hide utility */
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
 }

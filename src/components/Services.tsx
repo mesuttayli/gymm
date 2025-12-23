@@ -87,8 +87,8 @@ const packages = [
 
 export default function Services() {
   return (
-    <section id="services" className="section">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="services" className="section w-full">
+      <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center mb-16">
           <span className="text-[var(--accent-primary)] font-semibold tracking-wider uppercase text-sm">

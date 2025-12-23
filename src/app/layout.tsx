@@ -36,8 +36,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="tr" className="scroll-smooth">
-      <body className="antialiased bg-[var(--background)] text-[var(--foreground)]">
-        {children}
+      <body className="antialiased min-h-screen w-full">
+        <div className="flex flex-col min-h-screen w-full">
+          {children}
+        </div>
       </body>
     </html>
   );

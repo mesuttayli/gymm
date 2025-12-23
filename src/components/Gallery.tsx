@@ -25,8 +25,8 @@ export default function Gallery() {
     : galleryItems.filter(item => item.category === activeCategory)
 
   return (
-    <section id="gallery" className="section">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="gallery" className="section w-full">
+      <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center mb-12">
           <span className="text-[var(--accent-primary)] font-semibold tracking-wider uppercase text-sm">
