@@ -9,7 +9,6 @@ import {
   LayoutDashboard,
   FileText,
   Package,
-  Users,
   Image,
   Calendar,
   Mail,
@@ -17,15 +16,16 @@ import {
   LogOut,
   Menu,
   X,
-  ChevronRight
+  ChevronRight,
+  Video
 } from 'lucide-react'
 import { useState } from 'react'
 
 const menuItems = [
   { href: '/admin', icon: LayoutDashboard, label: 'Dashboard' },
+  { href: '/admin/hero', icon: Video, label: 'Hero Video' },
   { href: '/admin/content', icon: FileText, label: 'Site Icerigi' },
   { href: '/admin/services', icon: Package, label: 'Hizmetler' },
-  { href: '/admin/trainers', icon: Users, label: 'Antrenorler' },
   { href: '/admin/gallery', icon: Image, label: 'Galeri' },
   { href: '/admin/schedule', icon: Calendar, label: 'Ders Programi' },
   { href: '/admin/messages', icon: Mail, label: 'Mesajlar' },

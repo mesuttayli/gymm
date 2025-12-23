@@ -8,7 +8,6 @@ const navLinks = [
   { href: '#hero', label: 'Ana Sayfa' },
   { href: '#about', label: 'Hakkimizda' },
   { href: '#services', label: 'Hizmetler' },
-  { href: '#trainers', label: 'Antrenorler' },
   { href: '#gallery', label: 'Galeri' },
   { href: '#schedule', label: 'Program' },
   { href: '#contact', label: 'Iletisim' },
@@ -36,11 +35,14 @@ export default function Navbar() {
         <div className="flex items-center justify-between">
           {/* Logo */}
           <Link href="/" className="flex items-center gap-2 group">
-            <div className="w-10 h-10 bg-[var(--accent-primary)] rounded-lg flex items-center justify-center group-hover:scale-110 transition-transform">
+            <div
+              className="w-10 h-10 rounded-lg flex items-center justify-center group-hover:scale-110 transition-transform"
+              style={{ backgroundColor: '#FF3D00' }}
+            >
               <Dumbbell className="w-6 h-6 text-white" />
             </div>
-            <span className="text-2xl font-extrabold tracking-tight">
-              GYM<span className="text-[var(--accent-primary)]">M</span>
+            <span className="text-2xl font-extrabold tracking-tight text-white">
+              GYM<span style={{ color: '#FF3D00' }}>M</span>
             </span>
           </Link>
 
@@ -50,10 +52,14 @@ export default function Navbar() {
               <Link
                 key={link.href}
                 href={link.href}
-                className="text-sm font-medium text-[var(--foreground-muted)] hover:text-white transition-colors relative group"
+                className="text-sm font-medium transition-colors relative group"
+                style={{ color: '#A0A0A0' }}
               >
-                {link.label}
-                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-[var(--accent-primary)] group-hover:w-full transition-all duration-300" />
+                <span className="hover:text-white">{link.label}</span>
+                <span
+                  className="absolute -bottom-1 left-0 w-0 h-0.5 group-hover:w-full transition-all duration-300"
+                  style={{ backgroundColor: '#FF3D00' }}
+                />
               </Link>
             ))}
             <Link href="#contact" className="btn-primary text-sm">
@@ -73,14 +79,18 @@ export default function Navbar() {
 
         {/* Mobile Navigation */}
         {isMobileMenuOpen && (
-          <div className="lg:hidden mt-4 pb-4 border-t border-[var(--border)]">
+          <div
+            className="lg:hidden mt-4 pb-4"
+            style={{ borderTop: '1px solid #2A2A2A' }}
+          >
             <div className="flex flex-col gap-4 pt-4">
               {navLinks.map((link) => (
                 <Link
                   key={link.href}
                   href={link.href}
                   onClick={() => setIsMobileMenuOpen(false)}
-                  className="text-base font-medium text-[var(--foreground-muted)] hover:text-white transition-colors"
+                  className="text-base font-medium transition-colors"
+                  style={{ color: '#A0A0A0' }}
                 >
                   {link.label}
                 </Link>
