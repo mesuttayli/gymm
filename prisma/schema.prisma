@@ -1,0 +1,123 @@
+// Prisma schema for GymM - Fitness Studio Website
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+// User model for admin panel authentication
+model User {
+  id        String   @id @default(cuid())
+  email     String   @unique
+  password  String
+  name      String
+  role      String   @default("editor") // admin, editor
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+// Site content - dynamic text content
+model SiteContent {
+  id        String   @id @default(cuid())
+  key       String   @unique
+  value     String
+  type      String   @default("text") // text, html, image
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+// Services and membership packages
+model Service {
+  id          String   @id @default(cuid())
+  title       String
+  description String
+  price       String?
+  duration    String?
+  features    String   // JSON array stored as string
+  icon        String?
+  order       Int      @default(0)
+  isActive    Boolean  @default(true)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
+
+// Trainers
+model Trainer {
+  id          String   @id @default(cuid())
+  name        String
+  specialty   String
+  description String
+  image       String?
+  instagram   String?
+  order       Int      @default(0)
+  isActive    Boolean  @default(true)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
+
+// Gallery images
+model GalleryImage {
+  id        String   @id @default(cuid())
+  title     String?
+  url       String
+  category  String?  // gym, equipment, people, classes
+  order     Int      @default(0)
+  isActive  Boolean  @default(true)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+// Class schedule
+model Schedule {
+  id        String   @id @default(cuid())
+  day       String   // monday, tuesday, etc.
+  time      String
+  className String
+  trainer   String?
+  duration  String?
+  capacity  Int?
+  isActive  Boolean  @default(true)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+// Working hours
+model WorkingHours {
+  id        String   @id @default(cuid())
+  day       String   @unique
+  openTime  String?
+  closeTime String?
+  isClosed  Boolean  @default(false)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+// Contact form messages
+model ContactMessage {
+  id        String   @id @default(cuid())
+  name      String
+  email     String
+  phone     String?
+  subject   String?
+  message   String
+  isRead    Boolean  @default(false)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+// Pre-registration / Membership applications
+model Registration {
+  id          String   @id @default(cuid())
+  name        String
+  email       String
+  phone       String
+  packageType String?
+  message     String?
+  status      String   @default("pending") // pending, contacted, completed
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
