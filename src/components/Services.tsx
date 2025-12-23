@@ -7,26 +7,26 @@ const services = [
   {
     icon: Dumbbell,
     title: 'Agirlik Calismalari',
-    description: 'Profesyonel agirlik calismasi alaniyla kas gelistirme ve guc kazanma hedeflerinize ulasin.',
-    features: ['Serbest Agirliklar', 'Makineler', 'Fonksiyonel Antrenman']
+    description: 'Profesyonel agirlik calismasi alaniyla kas gelistirme ve guc kazanin.',
+    features: ['Serbest Agirliklar', 'Makineler', 'Fonksiyonel']
   },
   {
     icon: Heart,
     title: 'Cardio',
-    description: 'Son teknoloji cardio ekipmanlarimizla dayaniklilik ve kondisyonunuzu gelistirin.',
-    features: ['Kosun Bandlari', 'Eliptik Bisikletler', 'Kurekleri']
+    description: 'Son teknoloji cardio ekipmanlarimizla kondisyonunuzu gelistirin.',
+    features: ['Kosun Bandlari', 'Eliptik', 'Kurek']
   },
   {
     icon: Users,
     title: 'Grup Dersleri',
     description: 'Enerjik grup dersleriyle motive olun ve birlikte ter dokelim.',
-    features: ['Spinning', 'Yoga', 'Pilates', 'HIIT']
+    features: ['Spinning', 'Yoga', 'Pilates']
   },
   {
     icon: User,
     title: 'Kisisel Antrenman',
     description: 'Bire bir calismayla size ozel program ve surekli takip.',
-    features: ['Ozel Program', 'Beslenme Danismanligi', 'Ilerleme Takibi']
+    features: ['Ozel Program', 'Beslenme', 'Takip']
   },
   {
     icon: Zap,
@@ -46,80 +46,53 @@ const packages = [
   {
     name: 'Baslangic',
     price: '499',
-    period: 'ay',
-    features: [
-      'Sinirsiz Salon Erisimi',
-      'Temel Ekipman Kullanimi',
-      'Soyunma Odasi',
-      'WiFi'
-    ],
-    isPopular: false
+    features: ['Sinirsiz Salon Erisimi', 'Temel Ekipman', 'Soyunma Odasi', 'WiFi'],
+    popular: false
   },
   {
     name: 'Premium',
     price: '799',
-    period: 'ay',
-    features: [
-      'Sinirsiz Salon Erisimi',
-      'Tum Ekipmanlar',
-      'Grup Dersleri',
-      'Soyunma Odasi + Sauna',
-      'Kisisel Dolap',
-      '1x Antrenor Gorusmesi'
-    ],
-    isPopular: true
+    features: ['Sinirsiz Salon Erisimi', 'Tum Ekipmanlar', 'Grup Dersleri', 'Sauna', 'Kisisel Dolap'],
+    popular: true
   },
   {
     name: 'Elite',
     price: '1299',
-    period: 'ay',
-    features: [
-      'Tum Premium Ozellikler',
-      'Haftalik Kisisel Antrenman',
-      'Beslenme Danismanligi',
-      'Ozel Antrenman Alani',
-      'Misafir Hakki',
-      'VIP Etkinlik Erisimi'
-    ],
-    isPopular: false
+    features: ['Tum Premium Ozellikler', 'Haftalik PT', 'Beslenme Danismanligi', 'VIP Alan', 'Misafir Hakki'],
+    popular: false
   }
 ]
 
 export default function Services() {
   return (
-    <section id="services" className="section w-full">
-      <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Section Header */}
+    <section id="services" className="py-20 md:py-28 bg-[#0A0A0A]">
+      <div className="container">
+        {/* Header */}
         <div className="text-center mb-16">
-          <span className="text-[var(--accent-primary)] font-semibold tracking-wider uppercase text-sm">
+          <span className="text-[#FF3D00] font-semibold tracking-wider uppercase text-sm">
             Hizmetlerimiz
           </span>
-          <h2 className="section-title mt-2">
-            Hedefine Uygun
-            <span className="gradient-text"> Cozumler</span>
+          <h2 className="text-3xl md:text-4xl font-bold text-white mt-3">
+            Hedefine Uygun <span className="gradient-text">Cozumler</span>
           </h2>
-          <p className="section-subtitle mx-auto mt-4">
-            Farkli ihtiyac ve hedeflere yonelik genis hizmet yelpazemizle
-            fitness yolculugunuzu destekliyoruz.
+          <p className="text-[#A0A0A0] mt-4 max-w-xl mx-auto">
+            Farkli ihtiyac ve hedeflere yonelik genis hizmet yelpazemiz.
           </p>
         </div>
 
         {/* Services Grid */}
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-24">
-          {services.map((service, index) => (
-            <div key={index} className="card group">
-              <div className="w-14 h-14 bg-[var(--accent-primary)]/10 rounded-xl flex items-center justify-center mb-4 group-hover:bg-[var(--accent-primary)]/20 transition-colors">
-                <service.icon className="w-7 h-7 text-[var(--accent-primary)]" />
+          {services.map((service, i) => (
+            <div key={i} className="card group">
+              <div className="w-12 h-12 bg-[#FF3D00]/10 rounded-xl flex items-center justify-center mb-4 group-hover:bg-[#FF3D00]/20 transition-colors">
+                <service.icon className="w-6 h-6 text-[#FF3D00]" />
               </div>
               <h3 className="text-xl font-bold text-white mb-2">{service.title}</h3>
-              <p className="text-[var(--foreground-muted)] mb-4">{service.description}</p>
+              <p className="text-[#A0A0A0] mb-4 text-sm">{service.description}</p>
               <div className="flex flex-wrap gap-2">
-                {service.features.map((feature, i) => (
-                  <span
-                    key={i}
-                    className="text-xs bg-[var(--background-secondary)] text-[var(--foreground-muted)] px-3 py-1 rounded-full"
-                  >
-                    {feature}
+                {service.features.map((f, j) => (
+                  <span key={j} className="text-xs bg-[#111111] text-[#A0A0A0] px-3 py-1 rounded-full">
+                    {f}
                   </span>
                 ))}
               </div>
@@ -127,52 +100,53 @@ export default function Services() {
           ))}
         </div>
 
-        {/* Membership Packages */}
+        {/* Packages Header */}
         <div className="text-center mb-12">
-          <span className="text-[var(--accent-primary)] font-semibold tracking-wider uppercase text-sm">
+          <span className="text-[#FF3D00] font-semibold tracking-wider uppercase text-sm">
             Uyelik Paketleri
           </span>
-          <h2 className="section-title mt-2">
+          <h2 className="text-3xl md:text-4xl font-bold text-white mt-3">
             Sana Uygun <span className="gradient-text">Paketi Sec</span>
           </h2>
         </div>
 
+        {/* Packages */}
         <div className="grid md:grid-cols-3 gap-8">
-          {packages.map((pkg, index) => (
+          {packages.map((pkg, i) => (
             <div
-              key={index}
+              key={i}
               className={`relative rounded-2xl p-8 ${
-                pkg.isPopular
-                  ? 'bg-gradient-to-b from-[var(--accent-primary)]/20 to-[var(--background-card)] border-2 border-[var(--accent-primary)]'
-                  : 'bg-[var(--background-card)] border border-[var(--border)]'
+                pkg.popular
+                  ? 'bg-gradient-to-b from-[#FF3D00]/20 to-[#151515] border-2 border-[#FF3D00]'
+                  : 'bg-[#151515] border border-[#2A2A2A]'
               }`}
             >
-              {pkg.isPopular && (
-                <div className="absolute -top-4 left-1/2 -translate-x-1/2 bg-[var(--accent-primary)] text-white text-sm font-semibold px-4 py-1 rounded-full">
+              {pkg.popular && (
+                <div className="absolute -top-3 left-1/2 -translate-x-1/2 bg-[#FF3D00] text-white text-sm font-semibold px-4 py-1 rounded-full">
                   En Populer
                 </div>
               )}
 
               <h3 className="text-2xl font-bold text-white mb-2">{pkg.name}</h3>
               <div className="flex items-baseline gap-1 mb-6">
-                <span className="text-4xl font-bold text-[var(--accent-primary)]">{pkg.price}</span>
-                <span className="text-[var(--foreground-muted)]">TL / {pkg.period}</span>
+                <span className="text-4xl font-bold text-[#FF3D00]">{pkg.price}</span>
+                <span className="text-[#A0A0A0]">TL / ay</span>
               </div>
 
               <ul className="space-y-3 mb-8">
-                {pkg.features.map((feature, i) => (
-                  <li key={i} className="flex items-center gap-3 text-[var(--foreground-muted)]">
-                    <span className="w-5 h-5 bg-[var(--accent-primary)]/20 rounded-full flex items-center justify-center">
-                      <span className="w-2 h-2 bg-[var(--accent-primary)] rounded-full" />
+                {pkg.features.map((f, j) => (
+                  <li key={j} className="flex items-center gap-3 text-[#A0A0A0]">
+                    <span className="w-5 h-5 bg-[#FF3D00]/20 rounded-full flex items-center justify-center">
+                      <span className="w-2 h-2 bg-[#FF3D00] rounded-full" />
                     </span>
-                    {feature}
+                    {f}
                   </li>
                 ))}
               </ul>
 
               <Link
                 href="#contact"
-                className={`w-full ${pkg.isPopular ? 'btn-primary' : 'btn-secondary'} justify-center`}
+                className={`w-full block text-center ${pkg.popular ? 'btn-primary' : 'btn-secondary'}`}
               >
                 Hemen Basla
               </Link>

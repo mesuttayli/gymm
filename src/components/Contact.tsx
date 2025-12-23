@@ -30,7 +30,7 @@ export default function Contact() {
         setFormData({ name: '', email: '', phone: '', package: '', message: '' })
       }
     } catch (error) {
-      console.error('Error submitting form:', error)
+      console.error('Error:', error)
     } finally {
       setIsSubmitting(false)
     }
@@ -41,49 +41,45 @@ export default function Contact() {
   }
 
   return (
-    <section id="contact" className="section w-full">
-      <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Section Header */}
+    <section id="contact" className="py-20 md:py-28 bg-[#0A0A0A]">
+      <div className="container">
+        {/* Header */}
         <div className="text-center mb-16">
-          <span className="text-[var(--accent-primary)] font-semibold tracking-wider uppercase text-sm">
+          <span className="text-[#FF3D00] font-semibold tracking-wider uppercase text-sm">
             Iletisim
           </span>
-          <h2 className="section-title mt-2">
-            Bizimle
-            <span className="gradient-text"> Iletisime Gecin</span>
+          <h2 className="text-3xl md:text-4xl font-bold text-white mt-3">
+            Bizimle <span className="gradient-text">Iletisime Gecin</span>
           </h2>
-          <p className="section-subtitle mx-auto mt-4">
-            Sorulariniz veya uyelik basvurusu icin asagidaki formu doldurun.
-            En kisa surede size donelim.
+          <p className="text-[#A0A0A0] mt-4 max-w-xl mx-auto">
+            Sorulariniz veya uyelik basvurusu icin formu doldurun.
           </p>
         </div>
 
         <div className="grid lg:grid-cols-2 gap-12">
-          {/* Contact Form */}
-          <div className="bg-[var(--background-card)] border border-[var(--border)] rounded-2xl p-8">
+          {/* Form */}
+          <div className="bg-[#151515] border border-[#2A2A2A] rounded-2xl p-8">
             {isSubmitted ? (
               <div className="text-center py-12">
-                <div className="w-16 h-16 bg-[var(--accent-secondary)]/20 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <CheckCircle className="w-8 h-8 text-[var(--accent-secondary)]" />
+                <div className="w-16 h-16 bg-[#00FF88]/20 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <CheckCircle className="w-8 h-8 text-[#00FF88]" />
                 </div>
                 <h3 className="text-xl font-bold text-white mb-2">Tesekkurler!</h3>
-                <p className="text-[var(--foreground-muted)]">
-                  Mesajiniz basariyla gonderildi. En kisa surede size donecegiz.
+                <p className="text-[#A0A0A0]">
+                  Mesajiniz gonderildi. En kisa surede size donecegiz.
                 </p>
                 <button
                   onClick={() => setIsSubmitted(false)}
                   className="btn-secondary mt-6"
                 >
-                  Yeni Mesaj Gonder
+                  Yeni Mesaj
                 </button>
               </div>
             ) : (
               <form onSubmit={handleSubmit} className="space-y-5">
                 <div className="grid sm:grid-cols-2 gap-5">
                   <div>
-                    <label className="block text-sm font-medium text-white mb-2">
-                      Adiniz Soyadiniz *
-                    </label>
+                    <label className="block text-sm font-medium text-white mb-2">Ad Soyad *</label>
                     <input
                       type="text"
                       name="name"
@@ -91,13 +87,11 @@ export default function Contact() {
                       onChange={handleChange}
                       required
                       className="input"
-                      placeholder="Ornek: Ahmet Yilmaz"
+                      placeholder="Ahmet Yilmaz"
                     />
                   </div>
                   <div>
-                    <label className="block text-sm font-medium text-white mb-2">
-                      E-posta *
-                    </label>
+                    <label className="block text-sm font-medium text-white mb-2">E-posta *</label>
                     <input
                       type="email"
                       name="email"
@@ -112,9 +106,7 @@ export default function Contact() {
 
                 <div className="grid sm:grid-cols-2 gap-5">
                   <div>
-                    <label className="block text-sm font-medium text-white mb-2">
-                      Telefon
-                    </label>
+                    <label className="block text-sm font-medium text-white mb-2">Telefon</label>
                     <input
                       type="tel"
                       name="phone"
@@ -125,9 +117,7 @@ export default function Contact() {
                     />
                   </div>
                   <div>
-                    <label className="block text-sm font-medium text-white mb-2">
-                      Ilgilendiginiz Paket
-                    </label>
+                    <label className="block text-sm font-medium text-white mb-2">Paket</label>
                     <select
                       name="package"
                       value={formData.package}
@@ -143,9 +133,7 @@ export default function Contact() {
                 </div>
 
                 <div>
-                  <label className="block text-sm font-medium text-white mb-2">
-                    Mesajiniz
-                  </label>
+                  <label className="block text-sm font-medium text-white mb-2">Mesaj</label>
                   <textarea
                     name="message"
                     value={formData.message}
@@ -159,11 +147,9 @@ export default function Contact() {
                 <button
                   type="submit"
                   disabled={isSubmitting}
-                  className="btn-primary w-full py-4 text-lg disabled:opacity-50 disabled:cursor-not-allowed"
+                  className="btn-primary w-full py-4 disabled:opacity-50"
                 >
-                  {isSubmitting ? (
-                    'Gonderiliyor...'
-                  ) : (
+                  {isSubmitting ? 'Gonderiliyor...' : (
                     <>
                       <Send className="w-5 h-5" />
                       Gonder
@@ -174,50 +160,46 @@ export default function Contact() {
             )}
           </div>
 
-          {/* Contact Info */}
+          {/* Info */}
           <div className="space-y-6">
-            {/* Map placeholder */}
-            <div className="bg-[var(--background-card)] border border-[var(--border)] rounded-2xl overflow-hidden h-64">
-              <div className="w-full h-full bg-gradient-to-br from-[var(--accent-primary)]/10 to-[var(--background-tertiary)] flex items-center justify-center">
+            {/* Map */}
+            <div className="bg-[#151515] border border-[#2A2A2A] rounded-2xl overflow-hidden h-64">
+              <div className="w-full h-full bg-gradient-to-br from-[#FF3D00]/10 to-[#1A1A1A] flex items-center justify-center">
                 <div className="text-center">
-                  <MapPin className="w-12 h-12 text-[var(--accent-primary)] mx-auto mb-2" />
-                  <p className="text-[var(--foreground-muted)]">Harita Goruntule</p>
+                  <MapPin className="w-12 h-12 text-[#FF3D00] mx-auto mb-2" />
+                  <p className="text-[#A0A0A0]">Harita Goruntule</p>
                 </div>
               </div>
             </div>
 
             {/* Contact Cards */}
             <div className="grid sm:grid-cols-2 gap-4">
-              <div className="bg-[var(--background-card)] border border-[var(--border)] rounded-xl p-6 hover:border-[var(--accent-primary)] transition-colors">
-                <div className="w-12 h-12 bg-[var(--accent-primary)]/10 rounded-xl flex items-center justify-center mb-4">
-                  <MapPin className="w-6 h-6 text-[var(--accent-primary)]" />
+              <div className="bg-[#151515] border border-[#2A2A2A] rounded-xl p-6 hover:border-[#FF3D00] transition-colors">
+                <div className="w-12 h-12 bg-[#FF3D00]/10 rounded-xl flex items-center justify-center mb-4">
+                  <MapPin className="w-6 h-6 text-[#FF3D00]" />
                 </div>
                 <h4 className="font-semibold text-white mb-1">Adres</h4>
-                <p className="text-sm text-[var(--foreground-muted)]">
-                  Ornek Mahallesi, Fitness Caddesi No: 123, Kadikoy, Istanbul
+                <p className="text-sm text-[#A0A0A0]">
+                  Ornek Mah. Fitness Cad. No: 123, Kadikoy, Istanbul
                 </p>
               </div>
 
-              <div className="bg-[var(--background-card)] border border-[var(--border)] rounded-xl p-6 hover:border-[var(--accent-primary)] transition-colors">
-                <div className="w-12 h-12 bg-[var(--accent-primary)]/10 rounded-xl flex items-center justify-center mb-4">
-                  <Phone className="w-6 h-6 text-[var(--accent-primary)]" />
+              <div className="bg-[#151515] border border-[#2A2A2A] rounded-xl p-6 hover:border-[#FF3D00] transition-colors">
+                <div className="w-12 h-12 bg-[#FF3D00]/10 rounded-xl flex items-center justify-center mb-4">
+                  <Phone className="w-6 h-6 text-[#FF3D00]" />
                 </div>
                 <h4 className="font-semibold text-white mb-1">Telefon</h4>
-                <p className="text-sm text-[var(--foreground-muted)]">
-                  +90 212 XXX XX XX
-                  <br />
-                  +90 532 XXX XX XX
+                <p className="text-sm text-[#A0A0A0]">
+                  +90 212 XXX XX XX<br />+90 532 XXX XX XX
                 </p>
               </div>
 
-              <div className="bg-[var(--background-card)] border border-[var(--border)] rounded-xl p-6 hover:border-[var(--accent-primary)] transition-colors sm:col-span-2">
-                <div className="w-12 h-12 bg-[var(--accent-primary)]/10 rounded-xl flex items-center justify-center mb-4">
-                  <Mail className="w-6 h-6 text-[var(--accent-primary)]" />
+              <div className="bg-[#151515] border border-[#2A2A2A] rounded-xl p-6 hover:border-[#FF3D00] transition-colors sm:col-span-2">
+                <div className="w-12 h-12 bg-[#FF3D00]/10 rounded-xl flex items-center justify-center mb-4">
+                  <Mail className="w-6 h-6 text-[#FF3D00]" />
                 </div>
                 <h4 className="font-semibold text-white mb-1">E-posta</h4>
-                <p className="text-sm text-[var(--foreground-muted)]">
-                  info@gymm.com | uyelik@gymm.com
-                </p>
+                <p className="text-sm text-[#A0A0A0]">info@gymm.com | uyelik@gymm.com</p>
               </div>
             </div>
           </div>

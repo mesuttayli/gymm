@@ -3,24 +3,13 @@ import "./globals.css";
 
 export const metadata: Metadata = {
   title: "GYMM | Profesyonel Fitness & Spor Salonu",
-  description: "GYMM - Modern ekipmanlar, uzman antrenorler ve motive edici ortamla fitness hedeflerinize ulasin. Agirlik calismalari, cardio, grup dersleri ve kisisel antrenman.",
+  description: "GYMM - Modern ekipmanlar, uzman antrenorler ve motive edici ortamla fitness hedeflerinize ulasin.",
   keywords: "spor salonu, fitness, gym, agirlik, cardio, kisisel antrenman, yoga, pilates, crossfit, istanbul",
-  authors: [{ name: "GYMM" }],
   openGraph: {
     title: "GYMM | Profesyonel Fitness & Spor Salonu",
     description: "Modern ekipmanlar, uzman antrenorler ve motive edici ortamla fitness hedeflerinize ulasin.",
     type: "website",
     locale: "tr_TR",
-    siteName: "GYMM",
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "GYMM | Profesyonel Fitness & Spor Salonu",
-    description: "Modern ekipmanlar, uzman antrenorler ve motive edici ortamla fitness hedeflerinize ulasin.",
-  },
-  robots: {
-    index: true,
-    follow: true,
   },
 };
 
@@ -35,12 +24,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="tr" className="scroll-smooth">
-      <body className="antialiased min-h-screen w-full">
-        <div className="flex flex-col min-h-screen w-full">
-          {children}
-        </div>
-      </body>
+    <html lang="tr">
+      <body>{children}</body>
     </html>
   );
 }
